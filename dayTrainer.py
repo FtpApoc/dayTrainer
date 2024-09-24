@@ -1,79 +1,35 @@
-import json
-import math
+from trainerVerbose import trainerVerbose
+import random
 
-def handleLeap(uYear):
-    if uYear % 4 == 0:
-        if uYear % 100 == 0:
-            isLeap = False
-        else:
-            isLeap = True
-    else:
-        isLeap = False
-    return isLeap
-
-def handleCentury(uYear):
-    centuryArray = [2,0,5,3]
-    answer = (math.floor(uYear/100) - 20) % 4 
-    centuryDoomsDay = centuryArray[answer]
-
-    return(centuryDoomsDay)
-
-def handleYear(uYear):
-    centuryDoomsDay = handleCentury(uYear)
-
-    yearsPast = uYear % 100
-    leapYearsPast = math.floor(yearsPast / 4)
+def Main():
     
-    answer = centuryDoomsDay + yearsPast + leapYearsPast
+    print("""
+          Please Select Input Mode
+          1. Manual
+          2. Automatic
+          """)
 
-    isLeap = handleLeap(uYear)
+    iMode = int(input())
 
-    return answer,isLeap
+    if iMode == 1:
+        # Take Inputs 
+        uYear = int(input("Year: "))
+        uMonth = int(input("Month: "))
+        uDay = int(input("Day: "))
+
+    if iMode == 2:
+        uYear = random.integer(1600,3000)
+        uMonth = random.integer(1,12)
+        uDay = random.integer(1,31)
     
-
-def handleMonth(uMonth,leap_year):
-    uMonth -= 1
-
-    with open("doomsdays.json","r") as json_file:
-        monthDayList = json.load(json_file)["months"][uMonth]
-
-
-        if (leap_year and "leap_alternate" in monthDayList):
-           monthDayType = "leap_alternate" 
-        else: 
-            monthDayType = "doomsday"
-
-        monthsDoomsDate = monthDayList[monthDayType]
+    print("""
+        Please Select Verbosity
+        1. High 
+          """)
     
-    return monthsDoomsDate
+    iVerb = int(input())
 
-def handleDay(uDay):
-    
-    dayArray = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
+    if iVerb == 1:
+        trainerVerbose(uDay,uMonth,uYear)
 
-    offset = uDay - monthsDoomsDate
-    answer = dayArray[(doomsday + offset) % 7]
-    
-    print(f"The Doomsday This Month is: {monthsDoomsDate}")
-    print(f"This is {offset} days away from Chosen Date")
-    print(f"Doomsday is a {dayArray[doomsday % 7]}")
-    print(f"==============================")
-    print(f"{uDay} is a {answer}")
-    print(f"==============================")
-
-if __name__ == "__main__":
-    uYear = int(input("Year: "))
-    uMonth = int(input("Month: "))
-    uDay = int(input("Day: "))
-
-    (doomsday, isLeap) = handleYear(uYear)
-    monthsDoomsDate = handleMonth(uMonth,isLeap)
-    handleDay(uDay)
+Main()
