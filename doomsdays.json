@@ -1,0 +1,54 @@
+{
+    "months": [
+        {
+            "month_string": "January",
+            "doomsday": 3, 
+            "leap_alternate": 4
+        },
+        {
+            "month_string": "Feburary",
+            "doomsday": 28, 
+            "leap_alternate": 29
+        },
+        {
+            "month_string": "March",
+            "doomsday": 14
+        },
+        {
+            "month_string": "April",
+            "doomsday": 4
+        },
+        {
+            "month_string": "May",
+            "doomsday": 9
+        },
+        {
+            "month_string": "June",
+            "doomsday": 6 
+        },
+        {
+            "month_string": "July",
+            "doomsday": 11 
+        },
+        {
+            "month_string": "August",
+            "doomsday": 8 
+        },
+        {
+            "month_string": "September",
+            "doomsday": 5 
+        },
+        {
+            "month_string": "October",
+            "doomsday": 10 
+        },
+        {
+            "month_string": "November",
+            "doomsday": 7
+        },
+        {
+            "month_string": "December",
+            "doomsday": 12
+        }
+    ]
+}
