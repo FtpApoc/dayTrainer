@@ -28,17 +28,17 @@ def handleCenturyOctant(uYear):
     
     return (centOctant, centRemainder, centLeaps)
 
-def handleYear(uYear):
-    centuryDoomsDay = handleCentury(uYear)
+# def handleYear(uYear):
+#     centuryDoomsDay = handleCentury(uYear)
 
-    yearsPast = uYear % 100
-    leapYearsPast = math.floor(yearsPast / 4)
+#     yearsPast = uYear % 100
+#     leapYearsPast = math.floor(yearsPast / 4)
     
-    answer = centuryDoomsDay + yearsPast + leapYearsPast
+#     answer = centuryDoomsDay + yearsPast + leapYearsPast
 
-    isLeap = handleLeap(uYear)
+#     isLeap = handleLeap(uYear)
 
-    return {answer,leapYearsPast,isLeap}
+#     return {answer,leapYearsPast,isLeap}
     
 
 def handleMonth(uMonth,leap_year):

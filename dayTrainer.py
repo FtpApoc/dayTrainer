@@ -11,6 +11,10 @@ def Main():
 
     iMode = int(input())
 
+    title = "Please Select Input Mode "
+    options = ["Manual","Automatic"]
+    option, index = pick(options,title)
+
     if iMode == 1:
         # Take Inputs 
         uYear = int(input("Year: "))
